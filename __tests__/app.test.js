@@ -16,7 +16,7 @@ describe('03_separation-of-concerns-demo routes', () => {
     return setup(pool);
   });
 
-  // POST
+  // CREATE & POST Order
   it('creates a new order in our database and sends a text message', async () => {
     return request(app)
       .post('/api/v1/orders')
