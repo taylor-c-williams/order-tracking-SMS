@@ -16,14 +16,14 @@ describe('Order class tests', () => {
     return setup(pool);
   });
 
-  // Get by ID
+  // GET by ID
   it('gets one order by id', async () => {
     const expected = await Order.insert(1);
     const actual = await Order.getId(expected.id);
     expect(actual).toEqual(expect.arrayContaining([expected]));
   });
 
-  // Get ALL
+  // GET ALL
   it('gets all orders', async () => {
     const o1 = await Order.insert(1);
     const o2 = await Order.insert(2);
@@ -31,5 +31,12 @@ describe('Order class tests', () => {
 
     const orders = await Order.getAll();
     expect(orders).toEqual(expect.arrayContaining([o1, o2, o3]));
+  });
+
+  // UPDATE by ID
+  it('updates the quantity of an order', async () => {
+    const o1 = await Order.insert(1);
+    const order = await Order.update(o1.id, 2);
+    expect(order).toEqual(expect.arrayContaining([o1]));
   });
 });
