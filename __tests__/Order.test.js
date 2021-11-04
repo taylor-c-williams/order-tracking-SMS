@@ -1,8 +1,8 @@
 const pool = require('../lib/utils/pool');
-const twilio = require('twilio');
+// const twilio = require('twilio');
 const setup = require('../data/setup');
-const request = require('supertest');
-const app = require('../lib/app');
+// const request = require('supertest');
+// const app = require('../lib/app');
 const Order = require('../lib/models/Order');
 
 jest.mock('twilio', () => () => ({
@@ -35,8 +35,8 @@ describe('Order class tests', () => {
 
   // UPDATE by ID
   it('updates the quantity of an order', async () => {
-    const o1 = await Order.insert(1);
-    const order = await Order.update(o1.id, 2);
-    expect(order).toEqual(expect.arrayContaining([o1]));
+    const testOrder = await Order.insert(1);
+    const order = await Order.update(testOrder.id, 2);
+    expect(order).toEqual({ id: '1', quantity: 2 });
   });
 });

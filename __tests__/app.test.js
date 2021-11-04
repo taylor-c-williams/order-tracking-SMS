@@ -1,9 +1,9 @@
 const pool = require('../lib/utils/pool');
-const twilio = require('twilio');
+// const twilio = require('twilio');
 const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
-const Order = require('../lib/models/Order');
+// const Order = require('../lib/models/Order');
 
 jest.mock('twilio', () => () => ({
   messages: {
@@ -17,7 +17,7 @@ describe('03_separation-of-concerns-demo routes', () => {
   });
 
   // POST
-  it('creates a new order in our database and sends a text message', () => {
+  it('creates a new order in our database and sends a text message', async () => {
     return request(app)
       .post('/api/v1/orders')
       .send({ quantity: 10 })
