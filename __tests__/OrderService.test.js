@@ -3,6 +3,7 @@ const pool = require('../lib/utils/pool');
 const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
+const Order = require('../lib/models/Order');
 // const Order = require('../lib/models/Order');
 
 jest.mock('twilio', () => () => ({
@@ -16,26 +17,22 @@ describe('Order class tests', () => {
     return setup(pool);
   });
 
+  beforeEach(async () => {
+    return await Order.insert(1);
+  });
+
   // CREATE Order lives on app.test.js (demo)
 
   // UPDATE Order
   it('Updates an order in the DB and sends a confirmation text message', async () => {
-    return request(app)
-      .patch('/api/v1/orders/1')
+    return await request(app)
+      .put('/api/v1/orders/1')
       .send({ quantity: 10 })
       .then((res) => {
         expect(res.body).toEqual({
-          anything: 'anything',
+          id: '1',
+          quantity: 10,
         });
       });
   });
-
-  //   const data = await fakeRequest(app)
-  //   .put('/api/todos/1')
-  //   .send(update)
-  //   .expect('Content-Type', /json/)
-  //   .set('Authorization', token)
-  //   .expect(200);
-  // expect(data.body).toEqual(expectation);
-  // });
 });
