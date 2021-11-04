@@ -3,11 +3,12 @@ const twilio = require('twilio');
 const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
+const Order = require('../lib/models/Order');
 
 jest.mock('twilio', () => () => ({
   messages: {
-    create: jest.fn()
-  }
+    create: jest.fn(),
+  },
 }));
 
 describe('03_separation-of-concerns-demo routes', () => {
@@ -15,15 +16,16 @@ describe('03_separation-of-concerns-demo routes', () => {
     return setup(pool);
   });
 
+  // POST
   it('creates a new order in our database and sends a text message', () => {
     return request(app)
       .post('/api/v1/orders')
       .send({ quantity: 10 })
-      .then(res => {
+      .then((res) => {
         // expect(createMessage).toHaveBeenCalledTimes(1);
         expect(res.body).toEqual({
           id: '1',
-          quantity: 10
+          quantity: 10,
         });
       });
   });
