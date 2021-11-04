@@ -1,6 +1,6 @@
 # order-tracking-SMS
 
-An order tracking app which utilizes a layered architecture and and automated SMS update service
+An order tracking app which utilizes a layered architecture and Twilio, an automated SMS update service
 
 # Separation of Concerns
 
