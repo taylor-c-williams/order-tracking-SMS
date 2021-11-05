@@ -20,6 +20,19 @@ describe('03_separation-of-concerns-demo routes', () => {
     return await Order.insert(10);
   });
 
+  // POST (demo)
+  it('tests the POST route (demo)', async () => {
+    return request(app)
+      .post('/api/v1/orders')
+      .send({ quantity: 10 })
+      .then((res) => {
+        expect(res.body).toEqual({
+          id: '2',
+          quantity: 10,
+        });
+      });
+  });
+
   // GET ALL Orders
   it('Responds with an array of all orders', async () => {
     return await request(app)
