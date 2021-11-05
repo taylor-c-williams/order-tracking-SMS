@@ -74,10 +74,7 @@ describe('orders.js routes', () => {
     return await request(app)
       .delete('/api/v1/orders/1')
       .then((res) => {
-        expect(res.body).toEqual({
-          id: '1',
-          quantity: 10,
-        });
+        expect(res.status).toEqual(204);
       });
   });
 });
