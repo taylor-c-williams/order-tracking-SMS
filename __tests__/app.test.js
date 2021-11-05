@@ -40,13 +40,26 @@ describe('03_separation-of-concerns-demo routes', () => {
     return await request(app)
       .get('/api/v1/orders')
       .then((res) => {
-        // expect(createMessage).toHaveBeenCalledTimes(1);
         expect(res.body).toEqual([
           {
             id: '1',
             quantity: 10,
           },
         ]);
+      });
+  });
+
+  // GET Order by ID
+  it('Responds with an order object with the given ID', async () => {
+    const res = await request(app)
+      .post('/api/v1/orders')
+      .send({ quantity: 10 });
+    const newOrder = res.body;
+
+    return await request(app)
+      .get(`/api/v1/orders/${newOrder.id}`)
+      .then((res) => {
+        expect(res.body).toEqual(newOrder);
       });
   });
 });
