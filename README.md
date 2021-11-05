@@ -39,7 +39,7 @@ handler that an order was deleted
     ✔︎ - `OrderService.update(id, quantity)`
     - Updates the order in the database
     - Sends an "order updated" text message with the order ID and new quantity
-  - `OrderService.delete(id)`
+      ✔︎- `OrderService.delete(id)`
     - Deletes the order from the database
     - Sends an "order deleted" text message with the order ID
 
