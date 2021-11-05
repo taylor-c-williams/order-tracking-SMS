@@ -22,6 +22,7 @@ handler that an order was deleted
 ## Rubric **10pts**
 
 - `Order` model class _3pt_:
+
   - Unit tests for all `Order` methods in `__tests__/Order.test.js`
     ✔︎- `Order.getAll()`
     - Returns an array of `Order` instances
@@ -31,7 +32,9 @@ handler that an order was deleted
     - Returns the updated `Order`
   - `Order.delete(id)`
     - Returns the deleted `Order`
+
 - `OrderService` class _4pt_:
+
   - Unit tests for all `OrderService` methods in `__tests__/OrderService.test.js`
     ✔︎ - `OrderService.update(id, quantity)`
     - Updates the order in the database
@@ -39,12 +42,13 @@ handler that an order was deleted
   - `OrderService.delete(id)`
     - Deletes the order from the database
     - Sends an "order deleted" text message with the order ID
+
 - `orders` controller _3pt_:
   - Unit tests for all `orders` routes in `__tests__/app.test.js`
-  - `GET /api/v1/orders`
-    - Responds with an array of all orders
-  - `GET /api/v1/orders/:id`
-    - Responds with an order object with the given id
+  - ✔︎`GET /api/v1/orders`
+  - Responds with an array of all orders
+  - ✔︎`GET /api/v1/orders/:id`
+  - Responds with an order object with the given id
   - `PATCH /api/v1/orders/:id`
     - Takes a request body with a JSON object `{ "quantity": /* some number */}` and updates the order with the given id
   - `DELETE /api/v1/orders/:id`

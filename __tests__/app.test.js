@@ -56,4 +56,14 @@ describe('03_separation-of-concerns-demo routes', () => {
         expect(req.body).toEqual([{ id: '1', quantity: 10 }]);
       });
   });
+
+  // PATCH by ID
+  it('updates the quantity of an order', async () => {
+    const testOrder = await Order.insert(1);
+    return await request(app)
+      .patch(testOrder.id, 2)
+      .then((order) => {
+        expect(order).toEqual({ id: '1', quantity: 2 });
+      });
+  });
 });

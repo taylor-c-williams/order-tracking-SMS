@@ -24,7 +24,7 @@ describe('Order class tests', () => {
   // UPDATE Order
   it('Updates an order in the DB and sends a confirmation text message', async () => {
     return await request(app)
-      .put('/api/v1/orders/1')
+      .patch('/api/v1/orders/1')
       .send({ quantity: 10 })
       .then((res) => {
         expect(res.body).toEqual({
