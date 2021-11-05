@@ -33,4 +33,17 @@ describe('Order class tests', () => {
         });
       });
   });
+
+  // Delete Order
+  it('Deletes an order in the DB and sends a confirmation text message', async () => {
+    return await request(app)
+      .delete('1')
+      .get()
+      .then((res) => {
+        expect(res.body).toEqual({
+          id: '1',
+          quantity: 10,
+        });
+      });
+  });
 });

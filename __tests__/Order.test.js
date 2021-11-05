@@ -43,7 +43,7 @@ describe('Order class tests', () => {
   // Delete by ID
   it('returns the deleted order', async () => {
     const testOrder = await Order.insert(1);
-    await Order.delete(testOrder.id, 2);
+    await Order.delete(testOrder.id);
     const orders = await Order.getAll();
     expect(orders).toEqual([]);
   });

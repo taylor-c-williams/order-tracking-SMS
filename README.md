@@ -30,7 +30,7 @@ handler that an order was deleted
     - Returns an `Order`
       ✔︎- `Order.update(id, quantity)`
     - Returns the updated `Order`
-  - `Order.delete(id)`
+      ✔︎- `Order.delete(id)`
     - Returns the deleted `Order`
 
 - `OrderService` class _4pt_:
