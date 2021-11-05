@@ -49,7 +49,7 @@ handler that an order was deleted
   - Responds with an array of all orders
   - ✔︎`GET /api/v1/orders/:id`
   - Responds with an order object with the given id
-  - `PATCH /api/v1/orders/:id`
+  - ✔︎`PATCH /api/v1/orders/:id`
     - Takes a request body with a JSON object `{ "quantity": /* some number */}` and updates the order with the given id
   - `DELETE /api/v1/orders/:id`
     - Deletes the order with the given id, then sends an empty response with the status code of `204`.
