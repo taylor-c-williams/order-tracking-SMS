@@ -76,7 +76,7 @@ describe('orders.js routes', () => {
       .then((res) => {
         expect(res.body).toEqual({
           id: '1',
-          quantity: 100,
+          quantity: 10,
         });
       });
   });
