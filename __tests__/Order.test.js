@@ -39,4 +39,12 @@ describe('Order class tests', () => {
     const order = await Order.update(testOrder.id, 2);
     expect(order).toEqual({ id: '1', quantity: 2 });
   });
+
+  // Delete by ID
+  it('returns the deleted order', async () => {
+    const testOrder = await Order.insert(1);
+    await Order.delete(testOrder.id);
+    const orders = await Order.getAll();
+    expect(orders).toEqual([]);
+  });
 });
