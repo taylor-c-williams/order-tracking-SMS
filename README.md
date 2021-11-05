@@ -23,17 +23,17 @@ handler that an order was deleted
 
 - `Order` model class _3pt_:
   - Unit tests for all `Order` methods in `__tests__/Order.test.js`
-  - `Order.getAll()`
+    ✔︎- `Order.getAll()`
     - Returns an array of `Order` instances
-  - `Order.getById(id)`
+      ✔︎- `Order.getById(id)`
     - Returns an `Order`
-  - `Order.update(id, quantity)`
+      ✔︎- `Order.update(id, quantity)`
     - Returns the updated `Order`
   - `Order.delete(id)`
     - Returns the deleted `Order`
 - `OrderService` class _4pt_:
   - Unit tests for all `OrderService` methods in `__tests__/OrderService.test.js`
-  - `OrderService.update(id, quantity)`
+    ✔︎ - `OrderService.update(id, quantity)`
     - Updates the order in the database
     - Sends an "order updated" text message with the order ID and new quantity
   - `OrderService.delete(id)`

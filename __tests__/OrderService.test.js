@@ -21,8 +21,6 @@ describe('Order class tests', () => {
     return await Order.insert(1);
   });
 
-  // CREATE Order lives on app.test.js (demo)
-
   // UPDATE Order
   it('Updates an order in the DB and sends a confirmation text message', async () => {
     return await request(app)
